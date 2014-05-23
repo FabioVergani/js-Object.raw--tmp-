@@ -1,0 +1,15 @@
+console.clear();
+
+//#
+Object.raw=function(x){
+ var f=Object.create,o=f(null);
+ if(x){
+	var p,k=Object.keys(x),g=Object.getOwnPropertyDescriptor;
+	while(p=k.pop()){o[p]=g(x,p)};
+	o=f(null,o);
+ };
+ return o
+};
+
+//Test:
+[null,{d:0,a:1,b:2,c:3},{a:1,b:2},{},''].forEach(function(x){console.dir(Object.raw(x))});
